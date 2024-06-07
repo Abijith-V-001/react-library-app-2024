@@ -1,9 +1,10 @@
 import React from 'react'
+import NavBar from './NavBar'
 
 const ViewAll = () => {
     return (
-        <div>
-
+        <div><br />
+<NavBar/>
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12"></div>
@@ -33,21 +34,21 @@ const ViewAll = () => {
                                     <td>250</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Malgudi day	</th>
-                                    <td colspan="2">R K Narayan      </td>
+                                    <th scope="row">Malgudi day</th>
+                                    <td>R K Narayan</td>
                                     <td>1987</td>
                                     <td>300</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">The private life of an indian prince		</th>
-                                    <td colspan="2">Mulk Raj Anand
+                                    <td>Mulk Raj Anand
                                     </td>
                                     <td>1977</td>
                                     <td>310</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Untouchable		</th>
-                                    <td colspan="2">Mulk Raj Anand
+                                    <td>Mulk Raj Anand
                                     </td>
                                     <td>1958</td>
                                     <td>200</td>
@@ -56,7 +57,7 @@ const ViewAll = () => {
                                     <th scope="row"> Romeo and Juliet
 
                                     </th>
-                                    <td colspan="2">William Shakespeare
+                                    <td>William Shakespeare
 
                                     </td>
                                     <td>1587</td>
@@ -66,7 +67,7 @@ const ViewAll = () => {
                                     <th scope="row">The world as I see it
 
                                     </th>
-                                    <td colspan="2">Albert Einstein
+                                    <td >Albert Einstein
 
                                     </td>
                                     <td>1787</td>
@@ -76,7 +77,7 @@ const ViewAll = () => {
                                     <th scope="row">Origin of Species
 
                                     </th>
-                                    <td colspan="2">Charles Darwin
+                                    <td>Charles Darwin
 
                                     </td>
                                     <td>1587</td>
