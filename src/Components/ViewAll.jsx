@@ -1,90 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar'
+import axios from 'axios'
 
 const ViewAll = () => {
+    const [data, changeData] = useState({"articles":[]} )
+    const fetchData=()=>{
+        axios.get("https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=9b6ac262eea44bcbbf80ae1b064f631d").then(
+            (response)=>{
+                changeData(response.data)
+            }
+        ).catch().finally()
+    }
+    useEffect(()=>{
+        fetchData()
+    },[])
     return (
         <div><br />
-<NavBar/>
+            <NavBar />
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12"></div>
                     <div className="row g-3">
-                        <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12"></div>
 
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Author</th>
-                                    <th scope="col">Published year</th>
-                                    <th scope="col">Price(Rs)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Alchemist</th>
-                                    <td>Paulo Coelho</td>
-                                    <td>2000</td>
-                                    <td>200</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">The Post Office</th>
-                                    <td>JaRabindra Nath Tagore</td>
-                                    <td>1935</td>
-                                    <td>250</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Malgudi day</th>
-                                    <td>R K Narayan</td>
-                                    <td>1987</td>
-                                    <td>300</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">The private life of an indian prince		</th>
-                                    <td>Mulk Raj Anand
-                                    </td>
-                                    <td>1977</td>
-                                    <td>310</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Untouchable		</th>
-                                    <td>Mulk Raj Anand
-                                    </td>
-                                    <td>1958</td>
-                                    <td>200</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"> Romeo and Juliet
+                        {
+                        data.articles.map(
+                            (value, index) => {
+                                return <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                                <div class="card" >
+                                    <img src={value.urlToImage} class="card-img-top" alt="..."></img>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{value.title}</h5>
+                                            <p class="card-text">{value.description}</p>
+                                            <p class="card-text">{value.content}</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                </div>
+                                </div>
+                            }
+                        )
+                        }
 
-                                    </th>
-                                    <td>William Shakespeare
 
-                                    </td>
-                                    <td>1587</td>
-                                    <td>300</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">The world as I see it
-
-                                    </th>
-                                    <td >Albert Einstein
-
-                                    </td>
-                                    <td>1787</td>
-                                    <td>300</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Origin of Species
-
-                                    </th>
-                                    <td>Charles Darwin
-
-                                    </td>
-                                    <td>1587</td>
-                                    <td>450</td>
-                                </tr>
-                            </tbody>
-                        </table>
 
                     </div>
                 </div>
